@@ -4,6 +4,7 @@ import { LoginForm } from "./components/login/LoginForm";
 import { useSelector } from "react-redux";
 import { RootStateType } from "./redux/store/store";
 import { Contacts } from "./components/contacts/Contacts";
+import { Header } from "./components/header/Header";
 
 export const App = () => {
   const userId = useSelector((state: RootStateType) => state.app.userID);
@@ -14,6 +15,7 @@ export const App = () => {
 
   return (
     <div>
+      <Header />
       <Routes>
         <Route
           path="/"
