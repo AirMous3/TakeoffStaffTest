@@ -26,6 +26,7 @@ import {
   editContactThunk,
 } from "../../redux/reducers/contactsReducer/middleware/contactsMiddleware";
 import { RootStateType } from "../../redux/store/store";
+import { CustomToolbar } from "../toolbar/Toolbar";
 
 interface EditToolbarProps {
   apiRef: GridApiRef;
@@ -52,6 +53,7 @@ function EditToolbar(props: EditToolbarProps) {
       <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
         Add record
       </Button>
+      <CustomToolbar />
     </GridToolbarContainer>
   );
 }
