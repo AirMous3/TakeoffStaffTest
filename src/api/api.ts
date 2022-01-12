@@ -9,4 +9,7 @@ export const api = {
   login(login: string, password: string) {
     return instance.get(`/auth?login=${login}&password=${password}`);
   },
+  getContacts(userId: number) {
+    return instance.get(`/contacts?userId=${userId}`);
+  },
 };

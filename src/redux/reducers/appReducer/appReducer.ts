@@ -1,8 +1,14 @@
-import { actionStateType } from "./types/actionTypes";
-import { APP_ERROR, APP_LOGIN } from "./constants/appReducerConstants";
+import { actionStateType } from "./types/appActionTypes";
+import {
+  APP_ERROR,
+  APP_LOGIN,
+  APP_LOGOUT,
+} from "./constants/appReducerConstants";
+
+const initialUserID = localStorage.getItem("userId");
 
 const initialState: stateType = {
-  userID: null,
+  userID: initialUserID ? Number(initialUserID) : null,
   loginError: "",
 };
 
@@ -19,6 +25,8 @@ export const appReducer = (state = initialState, action: actionStateType) => {
     case APP_ERROR:
       return { ...state, loginError: action.error };
 
+    case APP_LOGOUT:
+      return { ...state, userID: null };
     default:
       return state;
   }
