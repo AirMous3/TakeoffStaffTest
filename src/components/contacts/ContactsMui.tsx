@@ -19,7 +19,9 @@ import {
   MuiEvent,
   useGridApiRef,
 } from "@mui/x-data-grid-pro";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addContactThunk } from "../../redux/reducers/contactsReducer/middleware/contactsMiddleware";
+import { RootStateType } from "../../redux/store/store";
 
 interface EditToolbarProps {
   apiRef: GridApiRef;
@@ -55,7 +57,9 @@ interface ContactsMuiProps {
 }
 
 export default function ContactsMui(rows: ContactsMuiProps) {
+  const dispatch = useDispatch();
   const apiRef = useGridApiRef();
+  const userId = useSelector((state: RootStateType) => state.app.userID);
 
   const handleRowEditStart = (
     params: GridRowParams,
@@ -82,14 +86,25 @@ export default function ContactsMui(rows: ContactsMuiProps) {
     event.stopPropagation();
     apiRef.current.setRowMode(id, "edit");
   };
-  // @ts-ignore
-  const handleSaveClick = (id) => async (event) => {
+
+  const handleSaveClick = (id: any) => async (event: any) => {
     event.stopPropagation();
     // Wait for the validation to run
     const isValid = await apiRef.current.commitRowChange(id);
     if (isValid) {
       apiRef.current.setRowMode(id, "view");
       const row = apiRef.current.getRow(id);
+      if (!row) return;
+      dispatch(
+        addContactThunk({
+          id: row.id,
+          name: row.name,
+          email: row.email,
+          address: row.address,
+          phone: row.phone,
+          userId: userId!,
+        })
+      );
       apiRef.current.updateRows([{ ...row, isNew: false }]);
     }
   };

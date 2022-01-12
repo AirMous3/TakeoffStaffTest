@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Contact } from "../redux/reducers/contactsReducer/contactsReducer";
 
 const instance = axios.create({
   withCredentials: true,
@@ -11,5 +12,8 @@ export const api = {
   },
   getContacts(userId: number) {
     return instance.get(`/contacts?userId=${userId}`);
+  },
+  addContact(payload: Contact) {
+    return instance.post(`/contacts`, payload);
   },
 };

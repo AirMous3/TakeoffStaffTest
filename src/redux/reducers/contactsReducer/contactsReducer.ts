@@ -1,5 +1,8 @@
 import { contactsActionTypes } from "./types/contactsActionTypes";
-import { SET_CONTACTS } from "./constants/contactsReducerConstants";
+import {
+  ADD_CONTACT,
+  SET_CONTACTS,
+} from "./constants/contactsReducerConstants";
 
 const initialState: State = {
   items: [],
@@ -27,6 +30,10 @@ export const contactsReducer = (
       return {
         ...state,
         items: action.contacts,
+      };
+    case ADD_CONTACT:
+      return {
+        items: [...state.items, action.payload],
       };
     default:
       return state;
