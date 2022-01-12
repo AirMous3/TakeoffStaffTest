@@ -16,4 +16,7 @@ export const api = {
   addContact(payload: Contact) {
     return instance.post(`/contacts`, payload);
   },
+  editContact(id: number, payload: Contact) {
+    return instance.put(`/contacts/${id}`, payload);
+  },
 };

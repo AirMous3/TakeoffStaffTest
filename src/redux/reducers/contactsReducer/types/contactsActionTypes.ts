@@ -1,5 +1,10 @@
-import { addContact, setContacts } from "../actions/contactsActions";
+import {
+  addContact,
+  editContact,
+  setContacts,
+} from "../actions/contactsActions";
 
 export type contactsActionTypes =
   | ReturnType<typeof setContacts>
-  | ReturnType<typeof addContact>;
+  | ReturnType<typeof addContact>
+  | ReturnType<typeof editContact>;

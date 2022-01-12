@@ -20,7 +20,10 @@ import {
   useGridApiRef,
 } from "@mui/x-data-grid-pro";
 import { useDispatch, useSelector } from "react-redux";
-import { addContactThunk } from "../../redux/reducers/contactsReducer/middleware/contactsMiddleware";
+import {
+  addContactThunk,
+  editContactThunk,
+} from "../../redux/reducers/contactsReducer/middleware/contactsMiddleware";
 import { RootStateType } from "../../redux/store/store";
 
 interface EditToolbarProps {
@@ -95,16 +98,20 @@ export default function ContactsMui(rows: ContactsMuiProps) {
       apiRef.current.setRowMode(id, "view");
       const row = apiRef.current.getRow(id);
       if (!row) return;
-      dispatch(
-        addContactThunk({
-          id: row.id,
-          name: row.name,
-          email: row.email,
-          address: row.address,
-          phone: row.phone,
-          userId: userId!,
-        })
-      );
+
+      const model = {
+        id: row!.id,
+        name: row!.name,
+        email: row!.email,
+        address: row!.address,
+        phone: row!.phone,
+        userId: userId!,
+      };
+      if (row!.isNew) {
+        dispatch(addContactThunk(model));
+      } else {
+        dispatch(editContactThunk(row.id, model));
+      }
       apiRef.current.updateRows([{ ...row, isNew: false }]);
     }
   };

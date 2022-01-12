@@ -1,6 +1,7 @@
 import { contactsActionTypes } from "./types/contactsActionTypes";
 import {
   ADD_CONTACT,
+  EDIT_CONTACT,
   SET_CONTACTS,
 } from "./constants/contactsReducerConstants";
 
@@ -34,6 +35,13 @@ export const contactsReducer = (
     case ADD_CONTACT:
       return {
         items: [...state.items, action.payload],
+      };
+    case EDIT_CONTACT:
+      return {
+        ...state,
+        items: state.items.map((item) =>
+          item.id === action.id ? { ...item, ...action.payload } : item
+        ),
       };
     default:
       return state;
