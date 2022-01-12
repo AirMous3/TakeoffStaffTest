@@ -1,5 +1,6 @@
 import {
   ADD_CONTACT,
+  DELETE_CONTACT,
   EDIT_CONTACT,
   SET_CONTACTS,
 } from "../constants/contactsReducerConstants";
@@ -11,3 +12,5 @@ export const addContact = (payload: Contact) =>
   ({ type: ADD_CONTACT, payload } as const);
 export const editContact = (id: number, payload: Contact) =>
   ({ type: EDIT_CONTACT, id, payload } as const);
+export const deleteContact = (id: number) =>
+  ({ type: DELETE_CONTACT, id } as const);

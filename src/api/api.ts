@@ -19,4 +19,7 @@ export const api = {
   editContact(id: number, payload: Contact) {
     return instance.put(`/contacts/${id}`, payload);
   },
+  deleteContact(id: number) {
+    return instance.delete(`/contacts/${id}`);
+  },
 };

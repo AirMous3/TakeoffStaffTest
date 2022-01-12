@@ -22,6 +22,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import {
   addContactThunk,
+  deleteContactThunk,
   editContactThunk,
 } from "../../redux/reducers/contactsReducer/middleware/contactsMiddleware";
 import { RootStateType } from "../../redux/store/store";
@@ -118,6 +119,8 @@ export default function ContactsMui(rows: ContactsMuiProps) {
 
   const handleDeleteClick = (id: any) => (event: any) => {
     event.stopPropagation();
+    const row = apiRef.current.getRow(id);
+    dispatch(deleteContactThunk(row!.id));
     apiRef.current.updateRows([{ id, _action: "delete" }]);
   };
 

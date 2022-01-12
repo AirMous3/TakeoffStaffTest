@@ -1,6 +1,7 @@
 import { contactsActionTypes } from "./types/contactsActionTypes";
 import {
   ADD_CONTACT,
+  DELETE_CONTACT,
   EDIT_CONTACT,
   SET_CONTACTS,
 } from "./constants/contactsReducerConstants";
@@ -42,6 +43,10 @@ export const contactsReducer = (
         items: state.items.map((item) =>
           item.id === action.id ? { ...item, ...action.payload } : item
         ),
+      };
+    case DELETE_CONTACT:
+      return {
+        items: state.items.filter((item) => item.id !== action.id),
       };
     default:
       return state;

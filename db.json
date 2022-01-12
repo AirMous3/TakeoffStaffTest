@@ -45,16 +45,8 @@
       "id": 38457,
       "name": "KRISAS",
       "email": "krisa@mail.ru",
-      "address": "assss",
-      "phone": "66666666666666664",
-      "userId": 1
-    },
-    {
-      "id": 47592,
-      "name": "xzxzxzxz",
-      "email": "xzxzxz",
-      "address": "xzxZxz",
-      "phone": "21323211232311",
+      "address": "Gomel",
+      "phone": "8 8000 555 35 35",
       "userId": 1
     },
     {
@@ -71,14 +63,6 @@
       "email": "maks@mail.ru",
       "address": "Minsk",
       "phone": "375333219635",
-      "userId": 1
-    },
-    {
-      "id": 12180,
-      "name": "Valeriu",
-      "email": "valeriu@mail.ru",
-      "address": "Kiev",
-      "phone": "8 800 555 35 35",
       "userId": 1
     }
   ]
