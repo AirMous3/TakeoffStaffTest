@@ -1,6 +1,10 @@
 import React from "react";
-import "./App.css";
+import { LoginForm } from "./components/login/LoginForm";
 
 export const App = () => {
-  return <div>123</div>;
+  return (
+    <div>
+      <LoginForm />
+    </div>
+  );
 };

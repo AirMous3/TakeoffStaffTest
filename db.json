@@ -1,0 +1,61 @@
+{
+  "auth": [
+    {
+      "login": "sonic@gmail.com",
+      "password": "1q2w3e4r",
+      "id": 1
+    },
+    {
+      "login": "also@gmail.com",
+      "password": "qwrtyds",
+      "id": 2
+    },
+    {
+      "login": "makdadi@gmail.com",
+      "password": "1q6666666",
+      "id": 3
+    }
+  ],
+  "contacts": [
+    {
+      "id": 214,
+      "name": "Vitya",
+      "email": "Vitya@mail.ru",
+      "address": "moscoWdsds",
+      "phone": "8800055545",
+      "userId": 1
+    },
+    {
+      "id": 210,
+      "name": "Krisstina",
+      "email": "Morrigan@mail.ru",
+      "address": "Warsaw",
+      "phone": "8-110-25-01-02",
+      "userId": 1
+    },
+    {
+      "id": 100,
+      "name": "Valera",
+      "email": "ololo@mail.ru",
+      "address": "Gomel",
+      "phone": "374-33-212-21",
+      "userId": 2
+    },
+    {
+      "id": 38457,
+      "name": "KRISAS",
+      "email": "krisa@mail.ru",
+      "address": "assss",
+      "phone": "66666666666666664",
+      "userId": 1
+    },
+    {
+      "id": 47592,
+      "name": "xzxzxzxz",
+      "email": "xzxzxz",
+      "address": "xzxZxz",
+      "phone": "21323211232311",
+      "userId": 1
+    }
+  ]
+}
