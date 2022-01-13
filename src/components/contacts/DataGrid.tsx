@@ -19,13 +19,12 @@ import {
   MuiEvent,
   useGridApiRef,
 } from "@mui/x-data-grid-pro";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   addContactThunk,
   deleteContactThunk,
   editContactThunk,
 } from "../../redux/reducers/contactsReducer/middleware/contactsMiddleware";
-import { RootStateType } from "../../redux/store/store";
 import { CustomToolbar } from "../toolbar/Toolbar";
 
 interface EditToolbarProps {
@@ -60,12 +59,12 @@ function EditToolbar(props: EditToolbarProps) {
 
 interface ContactsMuiProps {
   rows: GridRowsProp;
+  userId: number;
 }
 
-export default function ContactsMui(rows: ContactsMuiProps) {
+export default function DataGrid({ userId, rows }: ContactsMuiProps) {
   const dispatch = useDispatch();
   const apiRef = useGridApiRef();
-  const userId = useSelector((state: RootStateType) => state.app.userID);
 
   const handleRowEditStart = (
     params: GridRowParams,
@@ -108,7 +107,7 @@ export default function ContactsMui(rows: ContactsMuiProps) {
         email: row.email,
         address: row.address,
         phone: row.phone,
-        userId: userId!,
+        userId,
       };
       if (row!.isNew) {
         dispatch(addContactThunk(model));
@@ -213,7 +212,7 @@ export default function ContactsMui(rows: ContactsMuiProps) {
     >
       <DataGridPro
         sx={{ justifyContent: "center" }}
-        rows={rows.rows}
+        rows={rows}
         columns={columns}
         apiRef={apiRef}
         editMode="row"

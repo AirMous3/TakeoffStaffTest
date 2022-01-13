@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStateType } from "../../redux/store/store";
-import ContactsMui from "./ContactsMui";
+import DataGrid from "./DataGrid";
 import { getContacts } from "../../redux/reducers/contactsReducer/middleware/contactsMiddleware";
 
 interface ContactsProps {
@@ -21,7 +21,7 @@ export const Contacts = ({ userId }: ContactsProps) => {
 
   return (
     <div>
-      <ContactsMui rows={userContacts} />
+      <DataGrid rows={userContacts} userId={userId} />
     </div>
   );
 };
