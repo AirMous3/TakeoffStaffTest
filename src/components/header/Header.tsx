@@ -16,7 +16,7 @@ export const Header = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent">
-        <Toolbar style={{ display: "flex", justifyContent: "flex-end" }}>
+        <Toolbar style={{ marginLeft: "auto" }}>
           {isLoggedIn && (
             <Button onClick={() => logOutHandler()} color="inherit">
               logout

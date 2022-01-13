@@ -103,11 +103,11 @@ export default function ContactsMui(rows: ContactsMuiProps) {
       if (!row) return;
 
       const model = {
-        id: row!.id,
-        name: row!.name,
-        email: row!.email,
-        address: row!.address,
-        phone: row!.phone,
+        id: row.id,
+        name: row.name,
+        email: row.email,
+        address: row.address,
+        phone: row.phone,
         userId: userId!,
       };
       if (row!.isNew) {
@@ -212,6 +212,7 @@ export default function ContactsMui(rows: ContactsMuiProps) {
       }}
     >
       <DataGridPro
+        sx={{ justifyContent: "center" }}
         rows={rows.rows}
         columns={columns}
         apiRef={apiRef}
